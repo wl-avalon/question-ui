@@ -5,7 +5,9 @@ $config = [
     'basePath' => dirname(dirname(__DIR__)),
     'bootstrap' => ['log'],
     'aliases' => [
+//        '@xxx' => '@app/../xxx',
     ],
+    'controllerNamespace' => 'app\modules\controllers',
     'modules' => [
         'question_ui' => ['class' => 'app\modules\Module'],
     ],
