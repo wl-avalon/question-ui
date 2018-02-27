@@ -9,7 +9,7 @@ $config = [
     ],
     'controllerNamespace' => 'app\modules\controllers',
     'modules' => [
-        'question_ui' => ['class' => 'app\modules\Module'],
+        'question-ui' => ['class' => 'app\modules\Module'],
     ],
     'components' => include(__DIR__ . '/components.php'),
     'params' => include (__DIR__ . '/params.php'),

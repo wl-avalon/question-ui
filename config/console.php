@@ -8,7 +8,7 @@ $config = [
     'params' => include (__DIR__ . '/params.php'),
     'controllerNamespace' => 'app\modules\commands',
     'modules' => [
-        'question_ui' => ['class' => 'app\modules\Module'],
+        'question-ui' => ['class' => 'app\modules\Module'],
     ],
     'aliases' => [
 //        '@xxx' => '@app/../xxx',
