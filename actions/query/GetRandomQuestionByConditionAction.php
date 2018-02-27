@@ -12,6 +12,6 @@ use yii\base\Action;
 class GetRandomQuestionByConditionAction extends Action
 {
     public function run(){
-        return "asd";
+        return ['asd' => 123, 'ddd' => '133'];
     }
 }

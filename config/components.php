@@ -21,11 +21,14 @@ return [
         'showScriptName' => false,
     ],
     'log' => [
+        'class' => 'sp_framework\ext\log\SpYiiLogDispatcher',
         'traceLevel' => YII_DEBUG ? 3 : 0,
+        'logger' => 'sp_framework\ext\log\JdbYiiLogger',
         'targets' => [
             [
-                'class' => 'yii\log\FileTarget',
-                'levels' => ['error', 'warning'],
+                'class' => 'sp_framework\ext\log\JdbYiiLogFileTarget',
+                'log_level' => 16,
+                'log_path' => '/home/saber/webroot/study-palace/question-ui/logs',
             ],
         ],
     ],

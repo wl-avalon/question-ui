@@ -1,7 +1,7 @@
 #!/bin/sh
 MODULE_NAME="question-ui"
 MODULE_DIR_PATH="output/application/$MODULE_NAME/modules"
-LOG_DIR_PATH="output/application/$MODULE_NAME/modules/logs"
+LOG_DIR_PATH="output/application/$MODULE_NAME/logs"
 WEB_DIR_PATH="output/application/$MODULE_NAME/web"
 CONSOLE_DIR_PATH="output/application/$MODULE_NAME/console"
 rm -rf output
