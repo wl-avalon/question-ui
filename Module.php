@@ -7,8 +7,10 @@
  */
 
 namespace app\modules;
+use sp_framework\SpModule;
 
 class Module extends \yii\base\Module {
     public function init() {
+        SpModule::setModuleName("question-ui");
     }
 }
