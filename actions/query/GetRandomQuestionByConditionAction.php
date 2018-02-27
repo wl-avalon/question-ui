@@ -7,11 +7,13 @@
  */
 
 namespace app\modules\actions\query;
+use sp_framework\components\SpLog;
 use yii\base\Action;
 
 class GetRandomQuestionByConditionAction extends Action
 {
     public function run(){
-        return ['asd' => 123, 'ddd' => '133'];
+        SpLog::notice('asdasdasdasd');
+        return 'sssssss';
     }
 }
