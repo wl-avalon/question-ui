@@ -1,12 +1,10 @@
 #!/bin/sh
 MODULE_NAME="question-ui"
 MODULE_DIR_PATH="output/application/$MODULE_NAME/modules"
-LOG_DIR_PATH="output/application/$MODULE_NAME/logs"
 WEB_DIR_PATH="output/application/$MODULE_NAME/web"
 CONSOLE_DIR_PATH="output/application/$MODULE_NAME/console"
 rm -rf output
 mkdir -p ${MODULE_DIR_PATH}
-mkdir -p ${LOG_DIR_PATH}
 mkdir -p ${WEB_DIR_PATH}
 mkdir -p ${CONSOLE_DIR_PATH}
 cp -r actions apis commands controllers services components config constants models scripts Module.php ${MODULE_DIR_PATH}
