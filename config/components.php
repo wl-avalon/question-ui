@@ -28,7 +28,7 @@ return [
             [
                 'class' => 'sp_framework\ext\log\SpYiiLogFileTarget',
                 'log_level' => 16,
-                'log_path' => '/home/saber/webroot/study-palace/question-ui/logs',
+                'log_path' => '/home/saber/logs',
             ],
         ],
     ],
