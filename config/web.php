@@ -1,6 +1,6 @@
 <?php
 $config = [
-    'id' => 'question_ui',
+    'id' => 'question-ui',
     'timeZone'=>'Asia/Shanghai',
     'basePath' => dirname(dirname(__DIR__)),
     'bootstrap' => ['log'],
