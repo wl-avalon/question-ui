@@ -143,4 +143,16 @@ class QuestionRecordModel
         }
         return $updateRowNum;
     }
+
+    public static function queryOneRecordByUuid($uuid, $subjectID){
+        $aWhere = [
+            'uuid'  => $uuid,
+        ];
+        try{
+            $aData = CommonModel::createSelectCommand(CommonModel::getQuestionDbByID($subjectID), $aWhere, self::TABLE_NAME, [])->queryOne();
+        }catch(\Exception $e){
+            throw new \Exception('select db error,condition is:' . json_encode($aWhere));
+        }
+        return self::convertDbToBean($aData);
+    }
 }

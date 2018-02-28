@@ -79,4 +79,42 @@ class QuestionDetailModel
         }
         return $updateRowNum;
     }
+
+    public static function queryOneQuestionByCondition($grade, $subject, $version, $module, $nodeID){
+        $where = [
+            'AND',
+            ['=', 'grade', $grade],
+            ['=', 'subject', $subject],
+            ['=', 'version', $version],
+            ['=', 'module', $module],
+            ['=', 'node_id', $nodeID],
+            ['=', 'del_status', QuestionDetailBeanConst::DEL_STATUS_NORMAL]
+        ];
+        try{
+            $aData = (new Query())->select([])->from(self::TABLE_NAME)->where($where)->createCommand(CommonModel::getQuestionDbByID($subject))->queryOne();
+        }catch(\Exception $e){
+            throw new \Exception('select db error,condition is:' . json_encode($where));
+        }
+        return self::convertDbToBean($aData);
+    }
+
+    /**
+     * @param $recordUuid
+     * @param $subjectID
+     * @return QuestionDetailBean[]
+     * @throws \Exception
+     */
+    public static function queryQuestionListByRecordUuid($recordUuid, $subjectID){
+        $where = [
+            'AND',
+            ['=', 'question_record_id', $recordUuid],
+            ['=', 'del_status', QuestionDetailBeanConst::DEL_STATUS_NORMAL]
+        ];
+        try{
+            $aData = (new Query())->select([])->from(self::TABLE_NAME)->where($where)->createCommand(CommonModel::getQuestionDbByID($subjectID))->queryAll();
+        }catch(\Exception $e){
+            throw new \Exception('select db error,condition is:' . json_encode($where));
+        }
+        return self::convertDbToBeans($aData);
+    }
 }
