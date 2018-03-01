@@ -106,6 +106,7 @@ class GetRandomQuestionByConditionService
                         'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean->getUuid(), $i),
                     ];
                 }
+                $i++;
             }
         }
         return $resultList;
