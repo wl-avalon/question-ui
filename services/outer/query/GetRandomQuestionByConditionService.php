@@ -42,7 +42,7 @@ class GetRandomQuestionByConditionService
     }
 
     private static function formatQuestionContent(QuestionDetailBean $questionDetailBean){
-        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $questionContentList = explode("\n", trim($questionDetailBean->getQuestionContent()));
         $resultList = [];
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
@@ -66,7 +66,7 @@ class GetRandomQuestionByConditionService
     }
 
     private static function formatQuestionAnalysis(QuestionDetailBean $questionDetailBean){
-        $questionContentList = explode("\n", $questionDetailBean->getQuestionAnalysis());
+        $questionContentList = explode("\n", trim($questionDetailBean->getQuestionAnalysis()));
         $resultList = [];
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
@@ -83,13 +83,14 @@ class GetRandomQuestionByConditionService
                         'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean->getUuid(), $i),
                     ];
                 }
+                $i++;
             }
         }
         return $resultList;
     }
 
     private static function formatQuestionAnswer(QuestionDetailBean $questionDetailBean){
-        $questionContentList = explode("\n", $questionDetailBean->getQuestionAnswer());
+        $questionContentList = explode("\n", trim($questionDetailBean->getQuestionAnswer()));
         $resultList = [];
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
