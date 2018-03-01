@@ -54,18 +54,19 @@ class GetRandomQuestionByConditionService
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $result[] = [
+                    $resultList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean->getUuid(), $i),
                     ];
                 }
+                $i++;
             }
         }
         return $resultList;
     }
 
     private static function formatQuestionAnalysis(QuestionDetailBean $questionDetailBean){
-        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $questionContentList = explode("\n", $questionDetailBean->getQuestionAnalysis());
         $resultList = [];
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
@@ -77,7 +78,7 @@ class GetRandomQuestionByConditionService
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $result[] = [
+                    $resultList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean->getUuid(), $i),
                     ];
@@ -88,7 +89,7 @@ class GetRandomQuestionByConditionService
     }
 
     private static function formatQuestionAnswer(QuestionDetailBean $questionDetailBean){
-        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $questionContentList = explode("\n", $questionDetailBean->getQuestionAnswer());
         $resultList = [];
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
@@ -100,7 +101,7 @@ class GetRandomQuestionByConditionService
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $result[] = [
+                    $resultList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean->getUuid(), $i),
                     ];
