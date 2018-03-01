@@ -56,7 +56,7 @@ class GetRandomQuestionByConditionService
                 if($i < $count){
                     $resultList[] = [
                         'textType'  => 'math-ml-image',
-                        'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean->getUuid(), $i),
+                        'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;
@@ -80,7 +80,7 @@ class GetRandomQuestionByConditionService
                 if($i < $count){
                     $resultList[] = [
                         'textType'  => 'math-ml-image',
-                        'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean->getUuid(), $i),
+                        'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;
@@ -104,7 +104,7 @@ class GetRandomQuestionByConditionService
                 if($i < $count){
                     $resultList[] = [
                         'textType'  => 'math-ml-image',
-                        'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean->getUuid(), $i),
+                        'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;

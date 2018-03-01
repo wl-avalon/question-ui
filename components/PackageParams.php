@@ -7,7 +7,7 @@
  */
 
 namespace app\modules\components;
-
+use app\modules\models\beans\QuestionDetailBean;
 
 class PackageParams
 {
@@ -37,19 +37,19 @@ class PackageParams
         return "{$dirPath}/analysis_{$index}.png";
     }
 
-    public static function getImageDirPath($uuid){
-        return self::IMAGE_DIR_PATH . "/" . $uuid;
+    public static function getImageDirPath(QuestionDetailBean $questionDetailBean){
+        return self::IMAGE_DIR_PATH . "/math-ml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}";
     }
 
-    public static function getContentWebPNGFileName($uuid, $index){
-        return "/mathml/{$uuid}/content_{$index}.png";
+    public static function getContentWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
+        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/content_{$index}.png";
     }
 
-    public static function getAnswerWebPNGFileName($uuid, $index){
-        return "/mathml/{$uuid}/answer_{$index}.png";
+    public static function getAnswerWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
+        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/answer_{$index}.png";
     }
 
-    public static function getAnalysisWebPNGFileName($uuid, $index){
-        return "/mathml/{$uuid}/analysis_{$index}.png";
+    public static function getAnalysisWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
+        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/analysis_{$index}.png";
     }
 }
