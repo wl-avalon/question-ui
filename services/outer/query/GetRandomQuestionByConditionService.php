@@ -48,19 +48,21 @@ class GetRandomQuestionByConditionService
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
             $i = 0;
+            $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
-                $resultList[] = [
+                $oneLineList[] = [
                     'textType'  => 'text',
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $resultList[] = [
+                    $oneLineList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;
             }
+            $resultList[] = $oneLineList;
         }
         return $resultList;
     }
@@ -72,19 +74,21 @@ class GetRandomQuestionByConditionService
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
             $i = 0;
+            $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
-                $resultList[] = [
+                $oneLineList[] = [
                     'textType'  => 'text',
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $resultList[] = [
+                    $oneLineList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;
             }
+            $resultList[] = $oneLineList;
         }
         return $resultList;
     }
@@ -96,19 +100,21 @@ class GetRandomQuestionByConditionService
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
             $i = 0;
+            $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
-                $resultList[] = [
+                $oneLineList[] = [
                     'textType'  => 'text',
                     'value'     => $explodeMathItem,
                 ];
                 if($i < $count){
-                    $resultList[] = [
+                    $oneLineList[] = [
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean, $i),
                     ];
                 }
                 $i++;
             }
+            $resultList[] = $oneLineList;
         }
         return $resultList;
     }

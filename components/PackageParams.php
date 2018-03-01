@@ -42,14 +42,14 @@ class PackageParams
     }
 
     public static function getContentWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
-        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/content_{$index}.png";
+        return "https://www.wl-avalon.com/study-palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/content_{$index}.png";
     }
 
     public static function getAnswerWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
-        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/answer_{$index}.png";
+        return "https://www.wl-avalon.com/study-palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/answer_{$index}.png";
     }
 
     public static function getAnalysisWebPNGFileName(QuestionDetailBean $questionDetailBean, $index){
-        return "https://www.wl-avalon.com/study_palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/analysis_{$index}.png";
+        return "https://www.wl-avalon.com/study-palace/question-ui/mathml/{$questionDetailBean->getSubject()}/{$questionDetailBean->getVersion()}/{$questionDetailBean->getModule()}/{$questionDetailBean->getNodeID()}/{$questionDetailBean->getUuid()}/analysis_{$index}.png";
     }
 }
