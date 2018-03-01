@@ -7,6 +7,8 @@
  */
 
 namespace app\modules\services\outer\query;
+use app\modules\components\PackageParams;
+use app\modules\models\beans\QuestionDetailBean;
 use app\modules\models\question\QuestionDetailModel;
 use app\modules\models\question\QuestionRecordModel;
 
@@ -20,9 +22,9 @@ class GetRandomQuestionByConditionService
 
         $questionList = [];
         foreach($questionDetailList as $questionDetailBean){
-            $questionContent    = explode("\n", trim($questionDetailBean->getQuestionContent()));
-            $questionAnalysis   = explode("\n", trim($questionDetailBean->getQuestionAnalysis()));
-            $questionAnswer     = explode("\n", trim($questionDetailBean->getQuestionAnswer()));
+            $questionContent    = self::formatQuestionContent($questionDetailBean);
+            $questionAnalysis   = self::formatQuestionAnalysis($questionDetailBean);
+            $questionAnswer     = self::formatQuestionAnswer($questionDetailBean);
             $questionList[]     = [
                 'questionContent'           => $questionContent,
                 'questionAnswer'            => $questionAnswer,
@@ -37,5 +39,74 @@ class GetRandomQuestionByConditionService
             'questionRemark'    => $questionRemark,
             'questionList'      => $questionList,
         ];
+    }
+
+    private static function formatQuestionContent(QuestionDetailBean $questionDetailBean){
+        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $resultList = [];
+        foreach($questionContentList as $contentItem){
+            $count = mb_substr_count($contentItem, '{math-ml-image}');
+            $explodeMathList = explode('{math-ml-image}', $contentItem);
+            $i = 0;
+            foreach($explodeMathList as $explodeMathItem){
+                $resultList[] = [
+                    'textType'  => 'text',
+                    'value'     => $explodeMathItem,
+                ];
+                if($i < $count){
+                    $result[] = [
+                        'textType'  => 'math-ml-image',
+                        'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean->getUuid(), $i),
+                    ];
+                }
+            }
+        }
+        return $resultList;
+    }
+
+    private static function formatQuestionAnalysis(QuestionDetailBean $questionDetailBean){
+        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $resultList = [];
+        foreach($questionContentList as $contentItem){
+            $count = mb_substr_count($contentItem, '{math-ml-image}');
+            $explodeMathList = explode('{math-ml-image}', $contentItem);
+            $i = 0;
+            foreach($explodeMathList as $explodeMathItem){
+                $resultList[] = [
+                    'textType'  => 'text',
+                    'value'     => $explodeMathItem,
+                ];
+                if($i < $count){
+                    $result[] = [
+                        'textType'  => 'math-ml-image',
+                        'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean->getUuid(), $i),
+                    ];
+                }
+            }
+        }
+        return $resultList;
+    }
+
+    private static function formatQuestionAnswer(QuestionDetailBean $questionDetailBean){
+        $questionContentList = explode("\n", $questionDetailBean->getQuestionContent());
+        $resultList = [];
+        foreach($questionContentList as $contentItem){
+            $count = mb_substr_count($contentItem, '{math-ml-image}');
+            $explodeMathList = explode('{math-ml-image}', $contentItem);
+            $i = 0;
+            foreach($explodeMathList as $explodeMathItem){
+                $resultList[] = [
+                    'textType'  => 'text',
+                    'value'     => $explodeMathItem,
+                ];
+                if($i < $count){
+                    $result[] = [
+                        'textType'  => 'math-ml-image',
+                        'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean->getUuid(), $i),
+                    ];
+                }
+            }
+        }
+        return $resultList;
     }
 }
