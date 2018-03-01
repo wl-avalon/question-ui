@@ -20,8 +20,10 @@ class GetRandomQuestionByConditionService
         foreach($questionDetailList as $questionDetailBean){
             $questionContent    = explode("\n", $questionDetailBean->getQuestionContent());
             $questionAnalysis   = explode("\n", $questionDetailBean->getQuestionAnalysis());
+            $questionAnswer     = explode("\n", $questionDetailBean->getQuestionAnswer());
             $questionList[]     = [
                 'questionContent'           => $questionContent,
+                'questionAnswer'            => $questionAnswer,
                 'questionAnalysis'          => $questionAnalysis,
                 'questionKnowledgePoint'    => $questionDetailBean->getQuestionKnowledgePoint(),
                 'questionQuestionPoint'     => $questionDetailBean->getQuestionQuestionPoint(),

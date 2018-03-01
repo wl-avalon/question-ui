@@ -83,15 +83,15 @@ class QuestionDetailModel
     public static function queryOneQuestionByCondition($grade, $subject, $version, $module, $nodeID){
         $where = [
             'AND',
-            ['=', 'grade', $grade],
-            ['=', 'subject', $subject],
-            ['=', 'version', $version],
-            ['=', 'module', $module],
-            ['=', 'node_id', $nodeID],
             ['=', 'del_status', QuestionDetailBeanConst::DEL_STATUS_NORMAL]
         ];
+        if(!empty($grade))      {$where[] = ['=', 'grade',      $grade];}
+        if(!empty($subject))    {$where[] = ['=', 'subject',    $subject];}
+        if(!empty($version))    {$where[] = ['=', 'version',    $version];}
+        if(!empty($module))     {$where[] = ['=', 'module',     $module];}
+        if(!empty($nodeID))     {$where[] = ['=', 'node_id',    $nodeID];}
         try{
-            $aData = (new Query())->select([])->from(self::TABLE_NAME)->where($where)->createCommand(CommonModel::getQuestionDbByID($subject))->queryOne();
+            $aData = (new Query())->select([])->from(self::TABLE_NAME)->where($where)->limit(1)->createCommand(CommonModel::getQuestionDbByID($subject))->queryOne();
         }catch(\Exception $e){
             throw new \Exception('select db error,condition is:' . json_encode($where));
         }
