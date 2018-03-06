@@ -60,8 +60,8 @@ class GetRandomQuestionByConditionService
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getContentWebPNGFileName($questionDetailBean, $i),
                     ];
+                    $i++;
                 }
-                $i++;
             }
             $resultList[] = $oneLineList;
         }
@@ -87,8 +87,8 @@ class GetRandomQuestionByConditionService
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnalysisWebPNGFileName($questionDetailBean, $i),
                     ];
+                    $i++;
                 }
-                $i++;
             }
             $resultList[] = $oneLineList;
         }
@@ -114,8 +114,8 @@ class GetRandomQuestionByConditionService
                         'textType'  => 'math-ml-image',
                         'value'     => PackageParams::getAnswerWebPNGFileName($questionDetailBean, $i),
                     ];
+                    $i++;
                 }
-                $i++;
             }
             $resultList[] = $oneLineList;
         }
