@@ -44,10 +44,10 @@ class GetRandomQuestionByConditionService
     private static function formatQuestionContent(QuestionDetailBean $questionDetailBean){
         $questionContentList = explode("\n", trim($questionDetailBean->getQuestionContent()));
         $resultList = [];
+        $i = 0;
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
-            $i = 0;
             $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
                 $oneLineList[] = [
@@ -70,10 +70,10 @@ class GetRandomQuestionByConditionService
     private static function formatQuestionAnalysis(QuestionDetailBean $questionDetailBean){
         $questionContentList = explode("\n", trim($questionDetailBean->getQuestionAnalysis()));
         $resultList = [];
+        $i = 0;
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
-            $i = 0;
             $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
                 $oneLineList[] = [
@@ -96,10 +96,10 @@ class GetRandomQuestionByConditionService
     private static function formatQuestionAnswer(QuestionDetailBean $questionDetailBean){
         $questionContentList = explode("\n", trim($questionDetailBean->getQuestionAnswer()));
         $resultList = [];
+        $i = 0;
         foreach($questionContentList as $contentItem){
             $count = mb_substr_count($contentItem, '{math-ml-image}');
             $explodeMathList = explode('{math-ml-image}', $contentItem);
-            $i = 0;
             $oneLineList = [];
             foreach($explodeMathList as $explodeMathItem){
                 $oneLineList[] = [
