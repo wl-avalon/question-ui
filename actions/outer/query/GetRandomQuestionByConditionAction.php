@@ -6,7 +6,7 @@
  * Time: 下午9:10
  */
 
-namespace app\modules\actions\query;
+namespace app\modules\actions\outer\query;
 use app\modules\services\outer\query\GetRandomQuestionByConditionService;
 use sp_framework\actions\BaseAction;
 
